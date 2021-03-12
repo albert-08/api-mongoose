@@ -1,0 +1,27 @@
+version: "3"
+#{ services: {web: {...}, db:{...}} }
+#Servicios son mis containers
+services:
+  web:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    #build ---> ejecuta el docker file para crear la imagen y después crear el container
+    #aquí el volumen va a servir de link con mi carpeta de trabajo y mi container
+  db:
+    image: mongo
+    restart: always
+    expose:
+      - "27017"
+    #port:
+    #  - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+#En este caso el volume me va a ayudar a que persistan mis datos en la BD
+volumes:
+  mongodata:

@@ -2,7 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Users = require('./models/Users')
 const app = express()
-const MONGO_URI = "mongodb+srv://alberto:Prueba@cluster0.mgsau.mongodb.net/apimongo?retryWrites=true&w=majority"
+//const MONGO_URI = "mongodb+srv://alberto:Prueba@cluster0.mgsau.mongodb.net/apimongo?retryWrites=true&w=majority"
+const MONGO_URI = "mongodb://db:27017/apimongo" // aquí me estoy conectando desde el contenedor de mongo
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
