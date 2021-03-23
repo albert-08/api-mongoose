@@ -21,6 +21,15 @@ describe('User services', () => {
             email: "testuser@gmail.com",
             password: "test"
         }
+        const userDb = await userService.createUser(mockUser)
+
+        expect(mockUser.email).toBe(userDb.email)
+        expect(userDb).toHaveProperty('_id')
+
+    })
+
+    it('Esto no debe de generar un usuario', async() => {
+        
     })
     
 })
