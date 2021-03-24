@@ -38,4 +38,28 @@ describe('UserController', () => {
         expect(response.body[0]._id).toBeTruthy()
             
     })
+
+    it('Esto debe crear un usuario', async() => {
+
+        const response = await agent.post('/users')
+            .field('email', 'testuser@hotmail.com')
+            .field('name', 'test user')
+            .field('password', 'testpassword')
+            .expect(201)
+        expect(response.body.email).toBe('testuser@hotmail.com')
+        expect(response.body._id).toBeTruthy()
+    
+    })
+
+    it('Esto no debería crear un usuario', async() => {
+
+        const response = await agent.post('/users')
+            .field('name', 'test user')
+            .field('password', 'testpassword')
+            .expect(400)
+
+        expect(response.body.errors).toBeTruthy()
+        expect(response.body.errors).toHaveProperty('email')
+        
+    })
 })
