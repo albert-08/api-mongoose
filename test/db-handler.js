@@ -25,7 +25,7 @@ const closeDatabase = async() => {
 }
 
 const clearDatabase = async() => {
-    const collections = mongoose.connection.collection
+    const collections = mongoose.connection.collections
 
     for(const key in collections) {
         const collection = collections[key]
