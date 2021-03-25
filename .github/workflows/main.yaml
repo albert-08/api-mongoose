@@ -18,7 +18,7 @@ jobs:
     #que versión de actions va a ocupar
     - name: Build image Docker
     # nombra el paso en el que estás
-    - run: docker build . --file Dockerfile --tag api-mongoose-v1
+      run: docker build . --file Dockerfile --tag api-mongoose-v1
     #ejecuta un comando especifico
   test:
     runs-on: ubuntu-latest
