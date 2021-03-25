@@ -1,6 +1,6 @@
 name: Api Mogoose V1
 
-on: [push]
+on: [push, pull_request]
 #cuando se va a ejecutar este work flow
 
 jobs:
