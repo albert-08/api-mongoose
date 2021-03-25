@@ -1,0 +1,22 @@
+name: Api Mogoose V1
+
+on: [push]
+#cuando se va a ejecutar este work flow
+
+jobs:
+#Stages -> los procesos de CLI que tiene que hacer este workflow
+#Este workflow tiene que hacer dos cosas:
+#compilar -> build
+#test
+  build:
+
+    runs-on: ubuntu-latest
+    # aquí le digo a mi CI en donde se va a ejecutar
+    steps:
+    #Son los pasos que tengo que hacer para que build funcione
+    - uses: actions/checkout@v2
+    #que versión de actions va a ocupar
+    - name: Build image Docker
+    # nombra el paso en el que estás
+    - run: docker build . --file Dockerfile --tag api-mongoose-v1
+    #ejecuta un comando especifico
