@@ -20,3 +20,14 @@ jobs:
     # nombra el paso en el que estás
     - run: docker build . --file Dockerfile --tag api-mongoose-v1
     #ejecuta un comando especifico
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      -uses: actions/checkout@v2
+      -name: Test API
+      -uses: actions/setup-node@v1
+      -with:
+        node-version: '12.x'
+      - run: npm ci
+      - run: npm test 
