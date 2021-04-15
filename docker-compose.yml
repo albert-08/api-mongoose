@@ -3,7 +3,7 @@ version: "3"
 #Servicios son mis containers
 services:
   web:
-    build: .
+    build: ./docker/dev
     env_file: 
         - .env
     #environment:
