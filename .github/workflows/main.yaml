@@ -24,7 +24,7 @@ jobs:
     - name: Build & push image
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: docker build ./docker/prod --file Dockerfile --tag api-mongoose-v1
+      run: docker build . --tag api-mongoose-v1 -f docker/prod/Dockerfile
       run: docker tag api-mongoose-v1 registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
       run: docker push regisry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
     - name: Release
